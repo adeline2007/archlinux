@@ -1,0 +1,12 @@
+{
+  "bar.customModules.updates.pollingInterval": 1440000,
+  "theme.font.size": "0.9rem",
+  "bar.launcher.icon": "λ Seva here",
+  "bar.customModules.ram.label": false,
+  "bar.customModules.ram.round": false,
+  "bar.customModules.cava.framerate": 57,
+  "theme.bar.buttons.modules.hypridle.enableBorder": false,
+  "bar.customModules.storage.pollingInterval": 10000,
+  "bar.customModules.netstat.dynamicIcon": false,
+  "theme.bar.menus.menu.bluetooth.scaling": 100
+}
