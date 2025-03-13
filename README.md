@@ -67,7 +67,8 @@
    Но я покажу для hyprland
    * Управление стрелочками и чтобы выйти esc или в крайнем случае ctr+z Но последнее вообще закроект archinstall
    ! Mirrors >> Mirror region
-   Нажимаем клавишу с "/" и вводим название Russia и когда появится в интерфейсе, то enter
+   Нажимаем клавишу с "/"
+   и вводим название Russia и когда появится в интерфейсе, то enter
    >> Back
 
    ! Bootloader >> Grub
@@ -94,7 +95,7 @@
    Наблюдаем загрузку и наслаждаемся. Если что-то пойдет не так, а это Линукс - Добро пожаловать xD
    В таком случае просто молимся ...
    ```
-9. ОООО у тебя получилось? Продолжаем мучения) (Настройки hyprland)
+# Настройки hyprland)
     ```
     win+Q   // Откроем консоль
     cd .config/hypr
@@ -134,10 +135,10 @@
   
   **Настраиваем глобальные программы**
   Там где $terminal = … Можем написать браузер: 
-  $browser = firefox 
+  `$browser = firefox`
   Идем где написано exec-once. Это показывает что запустите при запуске ОС.
   Для будущего можем вписать ниже
-  exec-once = hyprpaper
+  `exec-once = hyprpaper`
   
   В general {} находим gaps_out и делаем их 5 потому что блин, отступ 20 это много :/
   Затем можем настроить бинды по аналогии, ну там разобраться можно) 
@@ -217,6 +218,40 @@
   
   Ребутиться - это святое!
 
-  Ждите продолжения статьи...
-    
+# Настройка hyprpanel
+К сожалению, мне почему-то тяжело далась установка. Команды здесь избыточны и повторяются,
+но пока мне лень что-то менять, поэтому советую ctr+C - ctr+shift+V
+
+(О да. Чтобы копировать и вставлять из консоли, к класике
+ctr+C ctr+V добавляется ещё +shift)
+
+А вот собственно и команды. Первые три можно скопировать вместе,
+потом по отдельности. 
+
+Пока будет загрузка то будут проситься подтверждение
+Там либо нажимаем `y  и enter` или `a   и enter` (Там по контексту можно понять)
+
+!Это очень долгая загрузка.. Запаситесь чаёчком)
+```
+yay -S aylurs-gtk-shell-git wireplumber libgtop bluez bluez-utils networkmanager dart-sass wl-clipboard upower gvfs
+yay -S --needed aylurs-gtk-shell-git grimblast-git gpu-screen-recorder-git hyprpicker matugen-bin python-gpustat hyprsunset-git hypridle-git
+sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs
+
+git clone https://github.com/Jas-SinghFSU/HyprPanel.git
+cd HyprPanel
+yay -S meson
+meson setup build
+meson compile -C build
+meson install -C build
+
+./scripts/install_fonts.sh
+
+// далее идём в конфиг hyprland
+vim .config/hypr/hyprland.conf
+
+// и там где мы указывали hyprpaper ниже вставляем
+exec-once = hyprpanel
+
+// Выходим из vim и делаем reboot xD
+```
    
