@@ -174,7 +174,7 @@
   **Делаем настройку wofi**
   качаем конфиг hyprland Делаем с помощью гита. 
   ```
-  clone https://github.com/adeline2007/archlinux
+  git clone https://github.com/adeline2007/archlinux
   cd archlinux
   cp -r wofi ~/.config/
 
