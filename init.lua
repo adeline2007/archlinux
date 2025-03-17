@@ -1,5 +1,11 @@
 -- КТО ОТКРЫЛ КОНФИГ - установи
--- yay -S clang pyright
+-- yay -S clang pyright rust-analyzer
+--
+-- Установка rust!
+-- curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh (установка Rust)
+-- source $HOME/.cargo/env
+-- curl https://sh.rustup.rs -sSf | sh
+
 
 -- Установка lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -91,6 +97,7 @@ require("lazy").setup({
       require("mason-lspconfig").setup()
       require("lspconfig").pyright.setup({}) -- LSP для Python
       require("lspconfig").clangd.setup({})  -- LSP для C++
+      require("lspconfig").rust_analyzer.setup({}) -- LSP для Rust
     end,
   },
 
@@ -109,7 +116,7 @@ require("lazy").setup({
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = { "python", "cpp" },
+        ensure_installed = { "python", "cpp", "rust" }, -- Добавлен Rust
         highlight = {
           enable = true,
         },
@@ -160,6 +167,13 @@ vim.api.nvim_create_user_command('Runcpp', function()
   vim.cmd('w')  -- Сохранить файл
   local filename = vim.fn.expand('%:r')  -- Имя файла без расширения
   vim.cmd('!g++ -o ' .. filename .. ' % && ./' .. filename)  -- Компиляция и запуск
+end, {})
+
+-- Команда для Rust
+vim.api.nvim_create_user_command('Runrust', function()
+  vim.cmd('w')  -- Сохранить файл
+  local filename = vim.fn.expand('%:r')  -- Имя файла без расширения
+  vim.cmd('!rustc % && ./' .. filename)  -- Компиляция и запуск
 end, {})
 
 -- Горячие клавиши для управления вкладками
