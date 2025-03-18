@@ -180,3 +180,27 @@ end, {})
 vim.api.nvim_set_keymap('n', '<A-,>', ':BufferPrevious<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-.>', ':BufferNext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-c>', ':BufferClose<CR>', { noremap = true, silent = true })
+
+
+-- Стартовый с++ код   :Cppstart
+vim.api.nvim_create_user_command('Cppstart', function()
+  vim.cmd('w')
+  -- Получаем текущий номер строки
+  local current_line = vim.api.nvim_win_get_cursor(0)[1]
+
+  local code = {
+    '#include <iostream>',
+    '',
+    '',
+    'using namespace std;',
+    '',
+    '',
+    '',
+    'int main() {',
+    '',
+    '',
+    '}'
+  }
+
+  vim.api.nvim_buf_set_lines(0, current_line - 1, current_line - 1, false, code)
+end, {})
