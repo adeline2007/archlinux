@@ -8,5 +8,12 @@
   "theme.bar.buttons.modules.hypridle.enableBorder": false,
   "bar.customModules.storage.pollingInterval": 10000,
   "bar.customModules.netstat.dynamicIcon": false,
-  "theme.bar.menus.menu.bluetooth.scaling": 100
+  "theme.bar.menus.menu.bluetooth.scaling": 100,
+  "theme.font.name": "JetBrains Mono NL",
+  "theme.font.style": "italic",
+  "theme.font.label": "JetBrains Mono NL Ultra-Bold Italic",
+  "scalingPriority": "gdk",
+  "bar.workspaces.show_icons": false,
+  "menus.dashboard.powermenu.avatar.image": "/home/adeline/Documents_my/img/na_zavod.jpg",
+  "menus.dashboard.powermenu.avatar.name": "The heart is empty"
 }
